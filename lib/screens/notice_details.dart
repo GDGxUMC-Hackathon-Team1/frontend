@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/dropdown.dart';
 import 'package:frontend/widgets/notice_card.dart';
 
 import '../widgets/category_card.dart';
 import '../widgets/homepage_top_banner.dart';
 import '../widgets/relevant_notice_card.dart';
+import '../widgets/tag_button.dart';
 
 class NoticeDetailsPage extends StatefulWidget {
   const NoticeDetailsPage({super.key});
@@ -14,6 +16,32 @@ class NoticeDetailsPage extends StatefulWidget {
 }
 
 class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
+
+  // 선택된 값을 추적할 변수
+  String? _selectedCategory;
+
+  // 드롭다운 항목들
+  final List<String> _categories = [
+    '장학금',
+    '학사',
+    '알림',
+    '행사',
+    '공지사항',
+  ];
+
+  List<String> selectedTags = []; // 선택된 태그 리스트
+
+  // 태그가 선택되었을 때 호출되는 콜백 함수
+  void _onTagTapped(String tag) {
+    setState(() {
+      if (selectedTags.contains(tag)) {
+        selectedTags.remove(tag); // 이미 선택된 태그는 제거
+      } else {
+        selectedTags.add(tag); // 선택되지 않은 태그는 추가
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,18 +49,63 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. 선택
+
           Container(
-            child: Center(
-              child: HomepageTopBanner(
-                username: "민경",
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 1. 카테고리 선택
+                  Text("카테고리", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                  SizedBox(height: 10,),
+                  DropdownComponent(
+                    items: _categories,
+                    selectedValue: _selectedCategory,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedCategory = newValue;
+                      });
+                    },
+                    hintText: '카테고리 선택', // 드롭다운 선택 안된 상태에서 보이는 텍스트
+                  ),
+                  SizedBox(height: 10,),
+
+                  // 2. 여러 태그 버튼들
+                  Text("태그", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                  SizedBox(height: 10,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal, // 가로로 스크롤 가능
+                    child: Row(
+                      children: [
+                        TagButton(
+                          tag: '장학금',
+                          onTap: _onTagTapped,
+                        ),
+                        TagButton(
+                          tag: '학사',
+                          onTap: _onTagTapped,
+                        ),
+                        TagButton(
+                          tag: '행사',
+                          onTap: _onTagTapped,
+                        ),
+                        TagButton(
+                          tag: '공지사항',
+                          onTap: _onTagTapped,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
 
           // 3. 관심있는 카테고리
           Padding(
-            padding: const EdgeInsets.all(25.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -18,12 +18,16 @@ class AppColors {
   static const Color textWhite = Color(0xFFFFFFFF);
 
   // 태그 색
+  static const Color tagBackgroundLightGray = Color(0xFFECEFF1);
   static const Color tagBackgroundGray = Color(0xFFE7E7E7);
   static const Color tagBackgroundPurple = Color(0xFF8050F2);
 
   // 내비게이션 바 아이콘 색
   static const Color navIconFocused = Color(0xFF3B3B3B);
   static const Color navIconUnfocused = Color(0xFF717171);
+
+  // 테두리 색
+  static const Color borderGray = Color(0xFFE1E1E1);
 
 }
 
