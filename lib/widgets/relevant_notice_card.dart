@@ -20,11 +20,11 @@ class RelevantNoticeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 361,
-      padding: const EdgeInsets.all(32),
+      width: 351,
+      padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -46,30 +46,33 @@ class RelevantNoticeCard extends StatelessWidget {
 
           // 제목
           Padding(
-            padding: const EdgeInsets.only(left: 48.0, right: 48.0),
+            padding: const EdgeInsets.only(left: 22.0, right: 22.0),
             child: Column(
               children: [
                 Text(
                   title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
+                    fontFamily: 'NotoSansKR',
+                    height: 1.2,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 15),
 
                 // 설명 (요약본)
                 Text(
                   summary,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontSize: 14,
+                    fontSize: 17,
                     color: Colors.black87,
+                    height: 1.1,
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
               ],
             ),
           ),

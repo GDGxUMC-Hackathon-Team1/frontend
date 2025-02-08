@@ -27,13 +27,10 @@ class NoticeCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            spreadRadius: 2,
-          ),
-        ],
+        border: Border.all(
+          color: Color(0xffE1E1E1),  // 테두리 색상
+          width: 1,  // 테두리 두께
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
