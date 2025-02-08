@@ -49,13 +49,15 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. 선택
-          Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: Container(
+
+          Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // 1. 카테고리 선택
                   Text("카테고리", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
                   SizedBox(height: 10,),
                   DropdownComponent(
@@ -68,49 +70,42 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
                     },
                     hintText: '카테고리 선택', // 드롭다운 선택 안된 상태에서 보이는 텍스트
                   ),
+                  SizedBox(height: 10,),
+
+                  // 2. 여러 태그 버튼들
+                  Text("태그", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                  SizedBox(height: 10,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal, // 가로로 스크롤 가능
+                    child: Row(
+                      children: [
+                        TagButton(
+                          tag: '장학금',
+                          onTap: _onTagTapped,
+                        ),
+                        TagButton(
+                          tag: '학사',
+                          onTap: _onTagTapped,
+                        ),
+                        TagButton(
+                          tag: '행사',
+                          onTap: _onTagTapped,
+                        ),
+                        TagButton(
+                          tag: '공지사항',
+                          onTap: _onTagTapped,
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
 
-          // 여러 태그 버튼들
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("태그", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                SizedBox(height: 10,),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal, // 가로로 스크롤 가능
-                  child: Row(
-                    children: [
-                      TagButton(
-                        tag: '장학금',
-                        onTap: _onTagTapped,
-                      ),
-                      TagButton(
-                        tag: '학사',
-                        onTap: _onTagTapped,
-                      ),
-                      TagButton(
-                        tag: '행사',
-                        onTap: _onTagTapped,
-                      ),
-                      TagButton(
-                        tag: '공지사항',
-                        onTap: _onTagTapped,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-
           // 3. 관심있는 카테고리
           Padding(
-            padding: const EdgeInsets.all(25.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
