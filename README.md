@@ -43,22 +43,18 @@ GDG UMC Hackathon Frontend
 1. 안드로이드 스튜디오에서 front 레포 실행 (크롬 브라우저로 선택)
 ![image](https://github.com/user-attachments/assets/e640a703-93a5-4404-b733-b03b06fa2dc2)
 
-2. f12(검사)
+2. f12(검사) 누르고 우측에 디바이스 툴 열기
+![image](https://github.com/user-attachments/assets/492b07c6-4ec2-4357-afca-1228556b0abc)
+
+3. 삼성 갤럭시 s20 울트라로 선택 후 실행 시작
 ![image](https://github.com/user-attachments/assets/cdf32e01-0897-46b4-99d2-5621b7054c52)
 
-
+4. 이름 나이 성별 입력 후 관심 카테고리 게시판 선택
 ![스크린샷 2025-02-09 082129](https://github.com/user-attachments/assets/66259fa5-261d-403d-9ead-35feae119135)
-![스크린샷 2025-02-09 082210](https://github.com/user-attachments/assets/1530d639-b447-4bdb-b96a-581d6d4a6d5f)
+
+5. 관심 태그 선택
 ![스크린샷 2025-02-09 082147](https://github.com/user-attachments/assets/d78ba23b-0f2f-4d1b-b888-65dfcc3dc642)
 
+6. 메인 페이지 확인 가능
+![스크린샷 2025-02-09 082210](https://github.com/user-attachments/assets/1530d639-b447-4bdb-b96a-581d6d4a6d5f)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
