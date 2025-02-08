@@ -59,6 +59,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          Container(
+            child: Center(
+              child: RelevantNoticeCard(
+                category: "학사",
+                title: "2024학년도 동계방학 학부사무실 단축근무 안내",
+                summary: """
+2024학년도 동계방학 과사무실 
+단축근무 안내입니다. 
+
+시행 기간: 2024.12.23.(월) 
+~ 2025.2.28.(금) [총 10주]
+            """,
+                relevance: 75,
+              ),
+            ),
+          ),
         ],
       ),
       
