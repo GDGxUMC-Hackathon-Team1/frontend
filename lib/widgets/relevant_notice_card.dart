@@ -21,7 +21,6 @@ class RelevantNoticeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 361,
-      height: 282,
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -35,6 +34,7 @@ class RelevantNoticeCard extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // 상단 태그 (카테고리)
