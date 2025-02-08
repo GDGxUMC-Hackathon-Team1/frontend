@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/notice_card.dart';
 import 'package:frontend/widgets/relevant_notice_card.dart';
 
 void main() {
@@ -41,16 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         child: Center(
-          child: RelevantNoticeCard(
+          child: NoticeCard(
             category: "학사",
             title: "2024학년도 동계방학 학부사무실 단축근무 안내",
-            summary: """
-2024학년도 동계방학 과사무실 
-단축근무 안내입니다. 
-
-시행 기간: 2024.12.23.(월) 
-~ 2025.2.28.(금) [총 10주]
-            """,
+            date: "2025.02.07",
             relevance: 75,
           ),
         ),
