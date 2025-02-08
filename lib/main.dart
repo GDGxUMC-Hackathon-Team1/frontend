@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/home.dart';
 import 'package:frontend/screens/notice_details.dart';
+import 'package:frontend/screens/survey_additional_screen.dart';
+import 'package:frontend/screens/survey_category_screen.dart';
 import 'package:frontend/widgets/category_card.dart';
 import 'package:frontend/widgets/homepage_top_banner.dart';
 import 'package:frontend/widgets/notice_card.dart';
@@ -9,6 +11,13 @@ import 'package:frontend/widgets/relevant_notice_card.dart';
 void main() {
   runApp(const MyApp());
 }
+
+// 사용자 전역변수
+Set<String> selectedTags = {};
+Set<String> selectedCategories = {};
+String grade = "";
+String income = "";
+String residence = "";
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -44,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pages = [
     HomePage(),  // 첫 번째 인덱스에서 HomePage 위젯을 표시
     NoticeDetailsPage(),
-    HomePage(),
+    CategorySurveyScreen(),
   ];
 
   void _onItemTapped(int index) {
