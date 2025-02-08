@@ -24,16 +24,13 @@ class _HomePageState extends State<HomePage> {
       child: Container(
             child: Center(
               child: RelevantNoticeCard(
-                category: "학사",
-                title: "2024학년도 동계방학 학부사무실 단축근무 안내",
+                category: "채용",
+                title: "2025년도 상반기 ICT 학점연계 인턴십 국내과정 모집 안내",
                 summary: """
-2024학년도 동계방학 과사무실
-단축근무 안내입니다.
-
-시행 기간: 2024.12.23.(월)
-~ 2025.2.28.(금) [총 10주]
+2025년도 상반기 ICT 학점연계 인턴십 국내과정 모집입니다.
+1월 21일(화) ~ 1월 26일(일)
             """,
-                relevance: 75,
+                relevance: 80,
               ),
             ),
           ),
@@ -42,16 +39,13 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         child: Center(
           child: RelevantNoticeCard(
-            category: "학사",
-            title: "학위수여식 졸업기념품 배부 안내",
+            category: "졸업사정",
+            title: "[졸업식] 2025년 2월 대학별 학위수여식 일정 및 학위복 대여 절차",
             summary: """
-졸업기념품 수령 대상 및 수령 방법
-안내입니다.
-
-수령 기간: 2025.02.17.(월) 
-~ 2025.2.21.(금) 
+2025년 2월 학위수여식 일정과 학위복 대여 절차가 공지되었습니다.
+폼 작성 기간: 2월 7일(금) ~ 2월 21일(금) 
             """,
-            relevance: 80,
+            relevance: 75,
           ),
         ),
       ),

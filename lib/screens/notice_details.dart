@@ -24,6 +24,28 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
   // 선택된 값을 추적할 변수
   String? _selectedCategory;
 
+  List<Container> containers = [];
+  /*
+  * Container(
+                      margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+                      child: Center(
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () => _showDialog(context), // 여기서 함수를 래핑해서 호출
+                                child: NoticeCard(
+                                    category: "장학금",
+                                    title: "2025학년도 1학기 국가근로장학금 희망근로지 신청 안내",
+                                    date: "2025.02.07",
+                                    relevance: 73
+                                ),
+                              ),
+                              SizedBox(height: 8,),
+                            ],
+                          )
+                      ),
+                    );
+  * */
   // 드롭다운 항목들
   final List<String> _categories = [
     '중앙대학교',
@@ -50,14 +72,14 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
   }
 
   // 다이얼로그 함수
-  void _showDialog(BuildContext context) {
+  void _showDialog(BuildContext context, {String? title, String? content}) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: Colors.white,
           title: Text(
-            '2025학년도 1학기 국가근로장학금 희망근로지 신청 안내',
+            title ?? '2025학년도 1학기 국가근로장학금 희망근로지 신청 안내',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           titlePadding: EdgeInsets.all(30),  // 제목에 패딩 추가
@@ -65,7 +87,7 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
             crossAxisAlignment: CrossAxisAlignment.start,  // 내용이 왼쪽으로 정렬되도록
             mainAxisSize: MainAxisSize.min,  // content 영역이 최소 크기만 차지하도록 설정
             children: [
-              Text('''1. 신청 기간 : 2025. 02. 07(금) ~ 2025. 02. 12(수)
+              Text(content ?? '''1. 신청 기간 : 2025. 02. 07(금) ~ 2025. 02. 12(수)
 
 2. 신청 대상 : 2025학년도 1학기 1차 국가근로장학금을 신청한 학생 
 
@@ -112,7 +134,7 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
     if (response.statusCode == 200) {
       String decodedBody = utf8.decode(response.bodyBytes);
       var jsonData = jsonDecode(decodedBody);
-      // print('Response: ${jsonData}');
+      print('Response: ${jsonData}');
 
       // List<NoticeDto> notices = (jsonData as List)
       //     .map((data) => NoticeDto.fromJson(data))
@@ -129,6 +151,87 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
     } else {
       print('Failed with status: ${response.statusCode}');
     }
+  setState(() {
+    containers =  [
+      Container(
+        margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+        child: Center(
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () => _showDialog(context, title: "2025학년도 1학기 국가근로장학금 희망근로지 신청 안내"), // 여기서 함수를 래핑해서 호출
+                  child: NoticeCard(
+                      category: "장학금",
+                      title: "2025학년도 1학기 국가근로장학금 희망근로지 신청 안내",
+                      date: "2025.02.07",
+                      relevance: 73
+                  ),
+                ),
+                SizedBox(height: 8,),
+              ],
+            )
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+        child: Center(
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () => _showDialog(context, title: "2025-1학기 소프트웨어학부 신임교수 소개", content: "2025-1학기 소프트웨어학부 신임교수를 소개합니다."), // 여기서 함수를 래핑해서 호출
+                  child: NoticeCard(
+                      category: "학사",
+                      title: "2025-1학기 소프트웨어학부 신임교수 소개",
+                      date: "2025.02.07",
+                      relevance: 50
+                  ),
+                ),
+                SizedBox(height: 8,),
+              ],
+            )
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+        child: Center(
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () => _showDialog(context, title: "딥페이크 디지털 성폭력 예방 교육 캠페인", content: "딥페이크 디지털 성폭력 예방 교육 캠페인이 진행됩니다."), // 여기서 함수를 래핑해서 호출
+                  child: NoticeCard(
+                      category: "기타",
+                      title: "딥페이크 디지털 성폭력 예방 교육 캠페인",
+                      date: "2025.02.08",
+                      relevance: 50
+                  ),
+                ),
+                SizedBox(height: 8,),
+              ],
+            )
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+        child: Center(
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () => _showDialog(context), // 여기서 함수를 래핑해서 호출
+                  child: NoticeCard(
+                      category: "학사",
+                      title: "2025학년도 전과(부) 합격자 조회 안내",
+                      date: "2025.02.05",
+                      relevance: 50
+                  ),
+                ),
+                SizedBox(height: 8,),
+              ],
+            )
+        ),
+      ),
+    ];
+  });
+
 
 
   }
@@ -173,7 +276,7 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
                     child: Row(
                       children: [
                         TagButton(
-                          tag: '장학금',
+                          tag: '장학',
                           onTap: _onTagTapped,
                         ),
                         TagButton(
@@ -219,29 +322,7 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
               scrollDirection: Axis.vertical,
               padding: EdgeInsets.only(left: 25),
               child: Column(
-                children: [
-                  ...List.generate(5, (index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
-                      child: Center(
-                          child: Column(
-                            children: [
-                              GestureDetector(
-                                onTap: () => _showDialog(context), // 여기서 함수를 래핑해서 호출
-                                child: NoticeCard(
-                                    category: "장학금",
-                                    title: "2025학년도 1학기 국가근로장학금 희망근로지 신청 안내",
-                                    date: "2025.02.07",
-                                    relevance: 73
-                                ),
-                              ),
-                              SizedBox(height: 8,),
-                            ],
-                          )
-                      ),
-                    );
-                  }),
-                ],
+                children: containers
               ),
             ),
           ),
