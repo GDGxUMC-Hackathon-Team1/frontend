@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
 import 'package:frontend/widgets/tag.dart';
 
-// 홈 화면 중요한 공지 카드
+// 상세조회 공지 카드
 class NoticeCard extends StatelessWidget {
   final String category;
   final String title;
