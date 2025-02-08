@@ -91,7 +91,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            // SizedBox(height: 10,),
 
             // 2. 슬라이더 위젯
             Column(
@@ -100,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                 CarouselSlider(
                   carouselController: _controller,  // CarouselSliderController 사용
                   options: CarouselOptions(
-                    aspectRatio: 1,  // 화면 비율
+                    aspectRatio: 1.2,  // 화면 비율
                     enlargeCenterPage: true,  // 가운데 슬라이드를 크게 표시
                     viewportFraction: 1.0,  // 각 슬라이드가 화면을 가득 채우도록 설정
                     scrollDirection: Axis.horizontal,  // 슬라이드 방향

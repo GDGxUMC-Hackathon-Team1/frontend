@@ -37,6 +37,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +55,25 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: HomePage(),
-//       body: Column(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex, // 현재 선택된 인덱스를 반영
+        onTap: _onItemTapped, // 아이템 클릭 시 호출되는 함수
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/images/home_icon.png', width: 24, height: 24,,),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: '검색',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: '알림',
+          ),
+        ],
+      ),
+      //       body: Column(
 //         children: [
 //           Container(
 //             child: Center(

@@ -20,11 +20,11 @@ class RelevantNoticeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 361,
-      padding: const EdgeInsets.all(32),
+      width: 351,
+      padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -57,6 +57,7 @@ class RelevantNoticeCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                     fontFamily: 'NotoSansKR',
+                    height: 1.2,
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -68,6 +69,7 @@ class RelevantNoticeCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 17,
                     color: Colors.black87,
+                    height: 1.1,
                   ),
                 ),
                 const SizedBox(height: 10),
