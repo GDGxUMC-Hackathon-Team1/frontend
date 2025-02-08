@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
+import 'package:frontend/main.dart';
+import 'package:frontend/models/notice_dto.dart';
+import 'package:frontend/services/api_service.dart';
 import 'package:frontend/widgets/dropdown.dart';
 import 'package:frontend/widgets/tag_button.dart';
 import 'package:frontend/widgets/notice_card.dart';
+import 'package:http/http.dart' as http;
 
 class NoticeDetailsPage extends StatefulWidget {
   const NoticeDetailsPage({super.key});
@@ -13,16 +17,21 @@ class NoticeDetailsPage extends StatefulWidget {
 
 class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
 
+  List<NoticeDto> notices = [];
+  ApiService apiService = ApiService();
   // 선택된 값을 추적할 변수
   String? _selectedCategory;
 
   // 드롭다운 항목들
   final List<String> _categories = [
-    '장학금',
-    '학사',
-    '알림',
-    '행사',
-    '공지사항',
+    '중앙대학교',
+    '소프트웨어학부',
+    '경영학부',
+    '국제물류학과',
+    'AI학과',
+    '교환학생',
+    '레인보우 시스템',
+    'ICT 인턴',
   ];
 
   List<String> selectedTags = []; // 선택된 태그 리스트
@@ -86,6 +95,25 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    // 📌 요청 URL과 쿼리 파라미터 설정
+    var uri = Uri.parse("http://13.124.235.66:8080/api/notice");
+    var response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      print('Response: ${response.body}');
+    } else {
+      print('Failed with status: ${response.statusCode}');
+    }
+
+
+  }
 
   @override
   Widget build(BuildContext context) {

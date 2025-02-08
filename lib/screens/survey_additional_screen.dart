@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
+import 'package:frontend/main.dart';
 
 class AdditionalSurveyScreen extends StatefulWidget {
   Set<String>? selectedTags;
@@ -206,6 +207,13 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                   print(selectedIncome);
                   print(selectedResidence);
                   print(gradeController.text);
+
+                  selectedCategories = widget.selectedCategories ?? {};
+                  selectedTags = widget.selectedTags ?? {};
+                  income = selectedIncome ?? "8분위";
+                  residence = selectedResidence ?? "경기도";
+                  grade = gradeController.text;
+
                   Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 child: const Text("다음으로", style: TextStyle(fontSize: 16, color: Colors.white)),

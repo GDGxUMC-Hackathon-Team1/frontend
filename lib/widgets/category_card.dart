@@ -34,21 +34,18 @@ class CategoryCard extends StatelessWidget {
           // 카테고리 명
           Align(
             alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 40.0),
-              child: Column(
-                children: [
-                  Text(
-                    '# ' + category,
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+            child: Column(
+              children: [
+                Text(
+                  '# ' + category,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
 
