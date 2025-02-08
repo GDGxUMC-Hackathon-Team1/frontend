@@ -165,14 +165,17 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 25),
               child: Row(
                 children: [
-                  Container(
-                    child: Center(
-                      child: CategoryCard(
-                        category: "장학금",
-                        description: "내가 신청할 수 있는 장학금 공지가 있어요",
+                  ...List.generate(5, (index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+                      child: Center(
+                        child: CategoryCard(
+                          category: "장학금",
+                          description: "내가 신청할 수 있는 장학금 공지가 있어요",
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                 ],
               ),
             ),

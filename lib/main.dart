@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "NotoSansKR",
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: '0ZR2MI'),
     );
   }
 }
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(widget.title),
+        title: Text('  '+ widget.title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
       ),
       body: HomePage(),
       bottomNavigationBar: Container(
