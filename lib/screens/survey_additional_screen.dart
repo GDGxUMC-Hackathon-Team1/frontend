@@ -32,6 +32,7 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
@@ -96,9 +97,13 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
+                        borderSide: BorderSide(color: AppColors.borderLightGray),  // 비활성화된 상태에서 회색 테두리
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: AppColors.borderLightGray),  // 활성화된 상태에서도 회색 테두리
                       ),
                     ),
                     hint: const Text("소득분위 선택"),
@@ -123,9 +128,13 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
+                        borderSide: BorderSide(color: AppColors.borderLightGray),  // 비활성화된 상태에서 회색 테두리
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: AppColors.borderLightGray),  // 활성화된 상태에서도 회색 테두리
                       ),
                     ),
                     hint: const Text("거주지 선택"),
@@ -152,9 +161,13 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                       hintText: "성적 입력",
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
+                        borderSide: BorderSide(color: AppColors.borderLightGray),  // 비활성화된 상태에서 회색 테두리
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: AppColors.borderLightGray),  // 활성화된 상태에서도 회색 테두리
                       ),
                     ),
                     keyboardType: TextInputType.number,
