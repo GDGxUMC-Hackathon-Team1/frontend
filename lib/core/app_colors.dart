@@ -28,6 +28,8 @@ class AppColors {
 
   // 테두리 색
   static const Color borderGray = Color(0xFFE1E1E1);
+  static const Color borderLightGray = Color(0xFFD0D5DD);
+
 
 }
 
