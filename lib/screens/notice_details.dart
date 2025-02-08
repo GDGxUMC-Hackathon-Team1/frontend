@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/dropdown.dart';
 import 'package:frontend/widgets/notice_card.dart';
 
 import '../widgets/category_card.dart';
@@ -14,6 +15,19 @@ class NoticeDetailsPage extends StatefulWidget {
 }
 
 class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
+
+  // 선택된 값을 추적할 변수
+  String? _selectedCategory;
+
+  // 드롭다운 항목들
+  final List<String> _categories = [
+    '장학금',
+    '학사',
+    '알림',
+    '행사',
+    '공지사항',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,10 +36,25 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 1. 선택
-          Container(
-            child: Center(
-              child: HomepageTopBanner(
-                username: "민경",
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("카테고리", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                  SizedBox(height: 10,),
+                  DropdownComponent(
+                    items: _categories,
+                    selectedValue: _selectedCategory,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedCategory = newValue;
+                      });
+                    },
+                    hintText: '카테고리 선택', // 드롭다운 선택 안된 상태에서 보이는 텍스트
+                  ),
+                ],
               ),
             ),
           ),

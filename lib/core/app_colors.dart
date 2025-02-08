@@ -25,5 +25,8 @@ class AppColors {
   static const Color navIconFocused = Color(0xFF3B3B3B);
   static const Color navIconUnfocused = Color(0xFF717171);
 
+  // 테두리 색
+  static const Color borderGray = Color(0xFFE1E1E1);
+
 }
 
