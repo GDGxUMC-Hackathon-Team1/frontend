@@ -55,7 +55,8 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
+
 
                   // 📌 진행 바
                   ClipRRect(
@@ -197,6 +198,8 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                 child: const Text("다음으로", style: TextStyle(fontSize: 16, color: Colors.white)),
               ),
             ),
+            const SizedBox(height: 12,),
+
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/home.dart';
+import 'package:frontend/screens/landing_page.dart';
 import 'package:frontend/screens/notice_details.dart';
 import 'package:frontend/screens/survey_additional_screen.dart';
 import 'package:frontend/screens/survey_category_screen.dart';
@@ -18,6 +19,8 @@ Set<String> selectedCategories = {};
 String grade = "";
 String income = "";
 String residence = "";
+String username = "민경";
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,13 +29,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffF5F5F5)),
         fontFamily: "NotoSansKR",
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: '0ZR2MI'),
+      // home: const MyHomePage(title: '0ZR2MI'),
+      home: const LandingPage(),
     );
   }
 }
@@ -52,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // 각 인덱스에 맞는 페이지를 보여주기 위한 위젯
   final List<Widget> _pages = [
     HomePage(),  // 첫 번째 인덱스에서 HomePage 위젯을 표시
+    // LandingPage(),
     NoticeDetailsPage(),
     CategorySurveyScreen(),
   ];
