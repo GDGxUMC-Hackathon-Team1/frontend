@@ -43,15 +43,15 @@ class _HomePageState extends State<HomePage> {
         child: Center(
           child: RelevantNoticeCard(
             category: "학사",
-            title: "2024학년도 동계방학 학부사무실 단축근무 안내",
+            title: "학위수여식 졸업기념품 배부 안내",
             summary: """
-2024학년도 동계방학 과사무실
-단축근무 안내입니다.
+졸업기념품 수령 대상 및 수령 방법
+안내입니다.
 
-시행 기간: 2024.12.23.(월)
-~ 2025.2.28.(금) [총 10주]
+수령 기간: 2025.02.17.(월) 
+~ 2025.2.21.(금) 
             """,
-            relevance: 75,
+            relevance: 80,
           ),
         ),
       ),
@@ -60,14 +60,11 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         child: Center(
           child: RelevantNoticeCard(
-            category: "학사",
-            title: "2024학년도 동계방학 학부사무실 단축근무 안내",
+            category: "기타",
+            title: "2025-1학기 다전공 선발 결과 안내",
             summary: """
-2024학년도 동계방학 과사무실
-단축근무 안내입니다.
-
-시행 기간: 2024.12.23.(월)
-~ 2025.2.28.(금) [총 10주]
+소프트웨어대학의 2025-1학기
+다전공 선발 결과를 안내합니다.
             """,
             relevance: 75,
           ),

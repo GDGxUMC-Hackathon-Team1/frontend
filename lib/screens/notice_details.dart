@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
 import 'package:frontend/main.dart';
@@ -106,8 +108,24 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
     var uri = Uri.parse("http://13.124.235.66:8080/api/notice");
     var response = await http.get(uri);
 
+
     if (response.statusCode == 200) {
-      print('Response: ${response.body}');
+      String decodedBody = utf8.decode(response.bodyBytes);
+      var jsonData = jsonDecode(decodedBody);
+      // print('Response: ${jsonData}');
+
+      // List<NoticeDto> notices = (jsonData as List)
+      //     .map((data) => NoticeDto.fromJson(data))
+      //     .toList();
+      //
+      // for (var notice in notices) {
+      //   print('Title: ${notice.title}');
+      //   print('Summary: ${notice.summary}');
+      //   print('URL: ${notice.url}');
+      //   print('CreatedAt: ${notice.createdAt}');
+      //   print('Tag: ${notice.tags}');
+      // }
+
     } else {
       print('Failed with status: ${response.statusCode}');
     }
