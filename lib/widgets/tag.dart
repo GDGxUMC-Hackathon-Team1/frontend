@@ -4,6 +4,8 @@ import 'package:frontend/core/app_colors.dart';
 class Tag extends StatelessWidget {
   final String name;
   final Color backgroundColor;
+  // final FontWeight fontWeight;
+  // final int fontSize;
 
   const Tag({
     super.key,
