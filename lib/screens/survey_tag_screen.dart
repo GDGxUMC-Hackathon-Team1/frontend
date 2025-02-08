@@ -131,11 +131,11 @@ class _TagSurveyScreenState extends State<TagSurveyScreen> {
                 child: const Text("다음으로", style: TextStyle(fontSize: 16, color: Colors.white)),
               ),
             ),
-
             const SizedBox(height: 12,),
           ],
         ),
       ),
     );
+
   }
 }

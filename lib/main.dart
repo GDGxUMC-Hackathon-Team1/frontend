@@ -21,6 +21,7 @@ String income = "";
 String residence = "";
 String username = "민경";
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Color(0xffF5F5F5),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
         title: Text('  '+ widget.title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
       ),

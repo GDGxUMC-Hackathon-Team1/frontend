@@ -57,6 +57,7 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
                   ),
                   const SizedBox(height: 8),
 
+
                   // 📌 진행 바
                   ClipRRect(
                     borderRadius: BorderRadius.circular(4),
@@ -198,6 +199,7 @@ class _AdditionalSurveyScreenState extends State<AdditionalSurveyScreen> {
               ),
             ),
             const SizedBox(height: 12,),
+
           ],
         ),
       ),

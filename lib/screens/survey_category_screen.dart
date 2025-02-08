@@ -128,6 +128,7 @@ class _CategorySurveyScreenState extends State<CategorySurveyScreen> {
             ),
 
             const SizedBox(height: 24,),
+
           ],
         ),
       ),
