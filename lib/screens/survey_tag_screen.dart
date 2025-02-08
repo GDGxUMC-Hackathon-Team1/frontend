@@ -45,6 +45,19 @@ class _TagSurveyScreenState extends State<TagSurveyScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 12,),
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back, color: Colors.black),
+                  onPressed: () {},
+                ),
+                const Text(
+                  "설문",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
             // 📌 진행 바
             ClipRRect(
               borderRadius: BorderRadius.circular(4),
@@ -118,9 +131,11 @@ class _TagSurveyScreenState extends State<TagSurveyScreen> {
                 child: const Text("다음으로", style: TextStyle(fontSize: 16, color: Colors.white)),
               ),
             ),
+
+            const SizedBox(height: 12,),
           ],
         ),
       ),
-    );;
+    );
   }
 }
