@@ -18,6 +18,7 @@ class AppColors {
   static const Color textWhite = Color(0xFFFFFFFF);
 
   // 태그 색
+  static const Color tagBackgroundLightGray = Color(0xFFECEFF1);
   static const Color tagBackgroundGray = Color(0xFFE7E7E7);
   static const Color tagBackgroundPurple = Color(0xFF8050F2);
 

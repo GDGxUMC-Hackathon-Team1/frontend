@@ -6,6 +6,7 @@ import 'package:frontend/widgets/notice_card.dart';
 import '../widgets/category_card.dart';
 import '../widgets/homepage_top_banner.dart';
 import '../widgets/relevant_notice_card.dart';
+import '../widgets/tag_button.dart';
 
 class NoticeDetailsPage extends StatefulWidget {
   const NoticeDetailsPage({super.key});
@@ -27,6 +28,19 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
     '행사',
     '공지사항',
   ];
+
+  List<String> selectedTags = []; // 선택된 태그 리스트
+
+  // 태그가 선택되었을 때 호출되는 콜백 함수
+  void _onTagTapped(String tag) {
+    setState(() {
+      if (selectedTags.contains(tag)) {
+        selectedTags.remove(tag); // 이미 선택된 태그는 제거
+      } else {
+        selectedTags.add(tag); // 선택되지 않은 태그는 추가
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +70,41 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
                   ),
                 ],
               ),
+            ),
+          ),
+
+          // 여러 태그 버튼들
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("태그", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                SizedBox(height: 10,),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal, // 가로로 스크롤 가능
+                  child: Row(
+                    children: [
+                      TagButton(
+                        tag: '장학금',
+                        onTap: _onTagTapped,
+                      ),
+                      TagButton(
+                        tag: '학사',
+                        onTap: _onTagTapped,
+                      ),
+                      TagButton(
+                        tag: '행사',
+                        onTap: _onTagTapped,
+                      ),
+                      TagButton(
+                        tag: '공지사항',
+                        onTap: _onTagTapped,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
 
