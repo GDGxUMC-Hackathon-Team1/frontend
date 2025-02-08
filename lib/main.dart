@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/widgets/category_card.dart';
+import 'package:frontend/widgets/homepage_top_banner.dart';
 import 'package:frontend/widgets/notice_card.dart';
 import 'package:frontend/widgets/relevant_notice_card.dart';
 
@@ -41,14 +42,26 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Container(
-        child: Center(
-          child: CategoryCard(
-            category: "장학금",
-            description: "내가 신청할 수 있는 장학금 공지가 있어요",
+      body: Column(
+        children: [
+          Container(
+            child: Center(
+              child: HomepageTopBanner(
+                username: "민경",
+              ),
+            ),
           ),
-        ),
+          Container(
+            child: Center(
+              child: CategoryCard(
+                category: "장학금",
+                description: "내가 신청할 수 있는 장학금 공지가 있어요",
+              ),
+            ),
+          ),
+        ],
       ),
+      
     );
   }
 }
