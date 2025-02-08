@@ -45,22 +45,47 @@ class _NoticeDetailsPageState extends State<NoticeDetailsPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          title: Text('2025학년도 1학기 국가근로장학금 희망근로지 신청 안내', style: TextStyle(fontWeight: FontWeight.bold),),
+          title: Text(
+            '2025학년도 1학기 국가근로장학금 희망근로지 신청 안내',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           titlePadding: EdgeInsets.all(30),  // 제목에 패딩 추가
-          content: Text('''1. 신청 기간 : 2025. 02. 07(금) ~ 2025. 02. 12(수)
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,  // 내용이 왼쪽으로 정렬되도록
+            mainAxisSize: MainAxisSize.min,  // content 영역이 최소 크기만 차지하도록 설정
+            children: [
+              Text('''1. 신청 기간 : 2025. 02. 07(금) ~ 2025. 02. 12(수)
 
-2. 신청 대상 : 2025학년도 1학기 1차 국가근로장학금을 신청한 학생 
+2. 신청 대상 : 2025학년도 1학기 1차 국가근로장학금을 신청한 학생 
 
 3. 신청 시 주의사항
- 가. 학적 기준 소속 캠퍼스로 신청해야 합니다. 
+  가. 학적 기준 소속 캠퍼스로 신청해야 합니다. 
    학기 중 교내근로, 교외근로 선발
-          '''),
+            '''),
+              SizedBox(height: 20), // 텍스트와 아래 버튼 사이에 간격을 추가
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    // "홈페이지 보러가기" 링크를 클릭
+                    print("홈페이지 보러가기 클릭됨");
+                  },
+                  child: Text(
+                    '홈페이지 보러가기',
+                    style: TextStyle(
+                      color: AppColors.deepPurple,
+                      decoration: TextDecoration.underline,  // 밑줄 추가
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           contentPadding: EdgeInsets.only(right: 30, left: 30, bottom: 30),  // 내용에 패딩 추가
-
         );
       },
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
