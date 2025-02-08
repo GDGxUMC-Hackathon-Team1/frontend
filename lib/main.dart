@@ -55,23 +55,42 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: HomePage(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex, // 현재 선택된 인덱스를 반영
-        onTap: _onItemTapped, // 아이템 클릭 시 호출되는 함수
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/home_icon.png', width: 24, height: 24,,),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: '검색',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: '알림',
-          ),
-        ],
+      bottomNavigationBar: Container(
+        height: 72,
+        child: BottomNavigationBar(
+          currentIndex: _selectedIndex, // 현재 선택된 인덱스를 반영
+          onTap: _onItemTapped, // 아이템 클릭 시 호출되는 함수
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 5.0),
+                child: Image.asset('assets/images/icon1.png', width: 24, height: 24,),
+              ),
+              label: '홈',
+            ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 5.0),
+                child: Image.asset('assets/images/icon2.png', width: 24, height: 24,),
+              ),
+              label: '상세조회',
+            ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 5.0),
+                child: Image.asset('assets/images/icon3.png', width: 24, height: 24,),
+              ),
+              label: '내 정보',
+            ),
+          ],
+          selectedIconTheme: IconThemeData(size: 24),  // 선택된 아이템 아이콘 크기
+          unselectedIconTheme: IconThemeData(size: 24), // 선택되지 않은 아이템 아이콘 크기
+          selectedFontSize: 12,
+          unselectedFontSize: 12,
+          selectedItemColor: Colors.black,  // 선택된 아이템 색상
+          unselectedItemColor: Colors.black,  // 선택되지 않은 아이템 색상
+          backgroundColor: Colors.white,
+        ),
       ),
       //       body: Column(
 //         children: [
