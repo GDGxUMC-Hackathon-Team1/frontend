@@ -7,7 +7,6 @@ class NoticeDto {
   final int id;
   final String title;
   final String url;
-  final String content;
   final String summary;
   final int boardId;
   final int hits;
@@ -19,7 +18,6 @@ class NoticeDto {
     required this.id,
     required this.title,
     required this.url,
-    required this.content,
     required this.summary,
     required this.boardId,
     required this.hits,
