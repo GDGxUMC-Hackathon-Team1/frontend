@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
 소프트웨어대학의 2025-1학기
 다전공 선발 결과를 안내합니다.
             """,
-            relevance: 75,
+            relevance: 50,
           ),
         ),
       ),
