@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/home.dart';
+import 'package:frontend/screens/notice_details.dart';
 import 'package:frontend/widgets/category_card.dart';
 import 'package:frontend/widgets/homepage_top_banner.dart';
 import 'package:frontend/widgets/notice_card.dart';
@@ -39,6 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int _selectedIndex = 0;
 
+  // 각 인덱스에 맞는 페이지를 보여주기 위한 위젯
+  final List<Widget> _pages = [
+    HomePage(),  // 첫 번째 인덱스에서 HomePage 위젯을 표시
+    NoticeDetailsPage(),
+    HomePage(),
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -54,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         title: Text('  '+ widget.title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),),
       ),
-      body: HomePage(),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         height: 72,
         child: BottomNavigationBar(
@@ -92,41 +100,6 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.white,
         ),
       ),
-      //       body: Column(
-//         children: [
-//           Container(
-//             child: Center(
-//               child: HomepageTopBanner(
-//                 username: "민경",
-//               ),
-//             ),
-//           ),
-//           Container(
-//             child: Center(
-//               child: CategoryCard(
-//                 category: "장학금",
-//                 description: "내가 신청할 수 있는 장학금 공지가 있어요",
-//               ),
-//             ),
-//           ),
-//           Container(
-//             child: Center(
-//               child: RelevantNoticeCard(
-//                 category: "학사",
-//                 title: "2024학년도 동계방학 학부사무실 단축근무 안내",
-//                 summary: """
-// 2024학년도 동계방학 과사무실
-// 단축근무 안내입니다.
-//
-// 시행 기간: 2024.12.23.(월)
-// ~ 2025.2.28.(금) [총 10주]
-//             """,
-//                 relevance: 75,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
 
     );
   }
