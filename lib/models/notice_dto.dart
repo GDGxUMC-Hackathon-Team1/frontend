@@ -11,7 +11,7 @@ class NoticeDto {
   final String summary;
   final int boardId;
   final int hits;
-  final List<String> tags;
+  final String tags;
   final DateTime createdAt;
   final DateTime updatedAt;
 

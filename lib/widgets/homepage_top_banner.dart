@@ -23,7 +23,7 @@ class HomepageTopBanner extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   style: const TextStyle(
-                    fontSize: 24,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                     fontFamily: 'NotoSansKR',
@@ -46,11 +46,7 @@ class HomepageTopBanner extends StatelessWidget {
               ),
             ),
             // 이미지
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Image.asset("assets/images/calendar.png", fit: BoxFit.contain),
-            )
+            Image.asset("assets/images/calendar.png", width: 140, height: 140,)
           ],
         ),
       );

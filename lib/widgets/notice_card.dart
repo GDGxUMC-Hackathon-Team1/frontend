@@ -2,78 +2,74 @@ import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
 import 'package:frontend/widgets/tag.dart';
 
-// 홈 화면 중요한 공지 카드
-class RelevantNoticeCard extends StatelessWidget {
+// 상세조회 공지 카드
+class NoticeCard extends StatelessWidget {
   final String category;
   final String title;
-  final String summary;
+  final String date;
   final int relevance;
 
-  const RelevantNoticeCard({
+  const NoticeCard({
     super.key,
     required this.category,
     required this.title,
-    required this.summary,
+    required this.date,
     required this.relevance,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 351,
-      padding: const EdgeInsets.all(25),
+      width: 361,
+      height: 180,
+      padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 28),
+      // padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            spreadRadius: 2,
-          ),
-        ],
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Color(0xffE1E1E1),  // 테두리 색상
+          width: 1,  // 테두리 두께
+        ),
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // 상단 태그 (카테고리)
-          Align(
-            child: Tag(name: category),
-            alignment: Alignment.centerLeft,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // 상단 태그 (카테고리)
+              Tag(name: category),
+
+              // 날짜
+              Text(
+                date, style: TextStyle(color: AppColors.textGray, fontSize: 15,fontWeight: FontWeight.w500, fontFamily: 'NotoSansKR'),
+              ),
+            ],
           ),
           const SizedBox(height: 8),
 
           // 제목
-          Padding(
-            padding: const EdgeInsets.only(left: 22.0, right: 22.0),
-            child: Column(
-              children: [
-                Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontFamily: 'NotoSansKR',
-                    height: 1.2,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 40.0),
+              child: Column(
+                children: [
+                  Text(
+                    title,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 15),
+                  const SizedBox(height: 8),
 
-                // 설명 (요약본)
-                Text(
-                  summary,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    color: Colors.black87,
-                    height: 1.1,
-                  ),
-                ),
-                const SizedBox(height: 10),
-              ],
+                  const SizedBox(height: 12),
+                ],
+              ),
             ),
           ),
 

@@ -14,7 +14,7 @@ NoticeDto _$NoticeDtoFromJson(Map<String, dynamic> json) => NoticeDto(
       summary: json['summary'] as String,
       boardId: (json['boardId'] as num).toInt(),
       hits: (json['hits'] as num).toInt(),
-      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
+      tags: (json['tags'] as String),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
