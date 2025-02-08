@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
 
 import '../widgets/category_card.dart';
 import '../widgets/homepage_top_banner.dart';
@@ -77,6 +78,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("HomePage: $selectedCategories");
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0.0),
@@ -87,7 +89,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               child: Center(
                 child: HomepageTopBanner(
-                  username: "민경",
+                  username: username,
                 ),
               ),
             ),
@@ -143,7 +145,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('관심있는 카테고리', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),),
@@ -164,19 +166,42 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,  // 가로 스크롤
               padding: EdgeInsets.only(left: 25),
               child: Row(
-                children: [
-                  ...List.generate(5, (index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
-                      child: Center(
-                        child: CategoryCard(
-                          category: "장학금",
-                          description: "내가 신청할 수 있는 장학금 공지가 있어요",
-                        ),
+                children:
+                selectedTags.map((tag) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 15),
+                    child: Center(
+                      child: CategoryCard(
+                          category: tag,
+                          description: categoryMap[tag] ?? ""
                       ),
-                    );
-                  }),
-                ],
+                    ),
+                  );
+                }).toList() +
+                selectedCategories.map((category) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 15),
+                    child: Center(
+                      child: CategoryCard(
+                          category: category,
+                          description: categoryMap[category] ?? ""
+                      ),
+                    ),
+                  );
+                }).toList()
+                // children: [
+                //   ...List.generate(5, (index) {
+                //     return Container(
+                //       margin: EdgeInsets.only(right: 15),  // 각 카드 간의 간격 조정
+                //       child: Center(
+                //         child: CategoryCard(
+                //           category: "장학금",
+                //           description: "내가 신청할 수 있는 장학금 공지가 있어요",
+                //         ),
+                //       ),
+                //     );
+                //   }),
+                // ],
               ),
             ),
           ],
